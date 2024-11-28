@@ -225,10 +225,10 @@ for iter = aa.iter0:aa.itmax
   end
   % Apply g and compute the current residual norm.
   if ~doRestart
-    [gval,~,vnorms,externalconvergence] = g(aa.x,[]);
+    [gval,~,vnorms,externalconvergence] = g(aa.x, [], iter);
   else
     if aa.fetchOutput
-      [gval,~,vnorms,externalconvergence] = g(aa.x,1);
+      [gval,~,vnorms,externalconvergence] = g(aa.x, 1, iter);
       aa.fetchOutput=0;
     else  
 %     we save the restart first before submitting the next job
@@ -242,7 +242,7 @@ for iter = aa.iter0:aa.itmax
 %       depending on the problem being solved.
 		save(restartFile,'aa','-v7.3')
 	  end
-	  g(aa.x,0); % submit job
+	  g(aa.x, 0, iter); % submit job
 	  break
 	end  
   end  
@@ -404,7 +404,7 @@ for iter = aa.iter0:aa.itmax
           condDF = cond(aa.R);
         end
       end
-      % Solve the least-squares problem.
+      fprintf('Solve the least-squares problem. \n')
       gamma = aa.R\(aa.Q'*fval);
       % Update the approximate solution.
       aa.x = gval - aa.DG*gamma;

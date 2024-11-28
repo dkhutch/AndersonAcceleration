@@ -18,3 +18,10 @@ J. Adv. Model. Earth Sys., https://doi.org/10.1029/2022MS003447.
 License:
 
 See LICENSE.txt for licensing information.
+
+## Modifications by David Hutchinson 2024-Nov-29
+
+Added the following files:
+1. age_run.m : for running the algorithm.
+2. g_age.m : the wrapper function that reads model output and sets a new run going
+3. AndersonAcceleration.m : Small changes made to Khatiwala's function to be compatible with my setup.
