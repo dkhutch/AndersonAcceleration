@@ -1,4 +1,5 @@
 # AndersonAcceleration
+## by Samar Khatiwala
 Anderson Acceleration for solving fixed point problems and spin-up of seasonally forced ocean biogeochemical models
 
 Note: I'm not currently updating this repository while I restructure the code. Email me for the latest version as well as a python implementation.
