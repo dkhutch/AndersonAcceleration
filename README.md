@@ -24,4 +24,6 @@ See LICENSE.txt for licensing information.
 Added the following files:
 1. age_run.m : for running the algorithm.
 2. g_age.m : the wrapper function that reads model output and sets a new run going
-3. AndersonAcceleration.m : Small changes made to Khatiwala's function to be compatible with my setup.
+
+Modified the original function:
+1. AndersonAcceleration.m : Small changes made to Khatiwala's function to be compatible with my setup.
