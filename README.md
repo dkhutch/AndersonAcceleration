@@ -36,4 +36,4 @@ Modified the original function:
 
 ### NOTE:
 
-I initiate the run from restart499. I then extract age output from restart500 and feed into the algorithm. Once complete, I save the new age tracer, then delete the folders output500 and restart500. (There's no need to keep the rest as it's a repeating cycle of the same simulation, except for the age tracer.)
+In this example, I initiate the run from restart499. I then extract age output from restart500 and feed into the algorithm. Once complete, I save the new age tracer, then delete the folders output500 and restart500. (There's no need to keep the rest as it's a repeating cycle of the same simulation, except for the age tracer.)
