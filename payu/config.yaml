@@ -1,0 +1,29 @@
+queue: normal
+project: y99
+walltime: 0:40:00
+ncpus: 96
+mem: 60GB
+jobname: age_g2
+
+model: mom
+input: 
+   - /g/data/y99/dkh157/mom/input/a15_c3
+exe: /g/data/y99/dkh157/mom/bin/fms_CM2M.x
+
+qsub_flags: '-j oe'
+
+storage:
+      gdata:
+            - y99
+            - hh5
+      scratch:
+            - y99
+
+collate:
+   queue: express
+   walltime: 00:20:00
+   mem: 2GB
+   exe: /g/data/y99/dkh157/mom/bin/mppnccombine
+
+postscript: do_anderson.sh
+restart_freq: 1
