@@ -12,7 +12,11 @@
 module load matlab
 module load matlab_licence
 
-scratchdir=/scratch/y99/dkh157/mom/archive/age_g2
+# BENOIT: Check archive directory.
+# IF model has not completed 10 years, then do nothing.
+# IF model has completed 10 years, submit matlab job.
+
+scratchdir=/scratch/y99/dkh157/mom/archive/age_n10
 cd ${scratchdir}/anderson
 
 matlab -nosplash -nojvm -singleCompThread < age_run.m >> $PBS_JOBID.log
