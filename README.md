@@ -20,12 +20,13 @@ License:
 
 See LICENSE.txt for licensing information.
 
-## Modifications by David Hutchinson 2024-Dec-11
+## Modifications by David Hutchinson 2025-Mar-05
 
 ### In the matlab folder
 Added the following files:
-1. age_run.m : for running the algorithm.
-2. g_age.m : the wrapper function that reads model output and sets a new run going
+1. make_wet3d.m : creates the wet3d and surf2d masks
+2. wombat_run.m : runs the AA algorithm on the WOMBAT tracers
+3. g_wombat.m : wrapper function that reads from and writes to restart files for the model. Also sets a new run going.
 
 Modified the original function:
 1. AndersonAcceleration.m : Small changes made to Khatiwala's function to be compatible with my setup.
@@ -36,4 +37,4 @@ Modified the original function:
 
 ### NOTE:
 
-In this example, I initiate the run from restart499. I then extract age output from restart500 and feed into the algorithm. Once complete, I save the new age tracer, then delete the folders output500 and restart500. (There's no need to keep the rest as it's a repeating cycle of the same simulation, except for the age tracer.)
+Care must be taken to configure the restart folders by specifying the `indir` and `outdir` for the start and point of the simulation cycle within `g_wombat.m`. Also, the algorithm automatically deletes the `output` and `restart` folders before initiating a new cycle of the simulation.
