@@ -37,4 +37,4 @@ Modified the original function:
 
 ### NOTE:
 
-Care must be taken to configure the restart folders by specifying the `indir` and `outdir` for the start and point of the simulation cycle within `g_wombat.m`. Also, the algorithm automatically deletes the `output` and `restart` folders before initiating a new cycle of the simulation.
+Care must be taken to configure the restart folders by specifying the `indir` and `outdir` for the start and point of the simulation cycle within `g_wombatlite.m`. Also, the algorithm automatically deletes the `output` and `restart` folders before initiating a new cycle of the simulation.
