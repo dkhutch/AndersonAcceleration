@@ -20,13 +20,13 @@ License:
 
 See LICENSE.txt for licensing information.
 
-## Modifications by David Hutchinson 2025-Mar-05
+## Modifications by David Hutchinson 2025-Mar-07
 
 ### In the matlab folder
 Added the following files:
 1. make_wet3d.m : creates the wet3d and surf2d masks
 2. wombat_run.m : runs the AA algorithm on the WOMBAT tracers
-3. g_wombat.m : wrapper function that reads from and writes to restart files for the model. Also sets a new run going.
+3. g_wombatlite.m : wrapper function that reads from and writes to restart files for the model. Also sets a new run going.
 
 Modified the original function:
 1. AndersonAcceleration.m : Small changes made to Khatiwala's function to be compatible with my setup.
