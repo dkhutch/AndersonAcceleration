@@ -1,5 +1,5 @@
 restartfile = 'aa_restart.mat';
-initdir = '/scratch/y99/dkh157/access-om2/archive/caco3dyn2_aa/restart008/ocean';
+initdir = '/scratch/y99/dkh157/access-om2/archive/caco3dyn2_aa/restart009/ocean';
 
 bgc_tracers = {'fe'; ...
     'alk'; ...

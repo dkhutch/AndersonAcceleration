@@ -86,7 +86,7 @@ manifest:
 # Misc
 runlog: false
 stacksize: unlimited
-restart_freq: 5YS
+restart_freq: 1
 mpirun: --mca io ompio --mca io_ompio_num_aggregators 1
 qsub_flags: -W umask=027
 env:
@@ -103,3 +103,5 @@ userscripts:
     error: tools/resub.sh
     run: rm -f resubmit.count
     sync: /g/data/vk83/apps/om2-scripts/concatenate_ice/concat_ice_daily.sh
+
+postscript: do_anderson.sh

@@ -3,8 +3,8 @@ function [gx, gv, vnorms, externalconv] = g_wombatlite(x, fetchOutput, iter)
 payudir = '/home/157/dkh157/access-om2/caco3dyn2_aa';
 scratchdir = '/scratch/y99/dkh157/access-om2/archive/caco3dyn2_aa';
 
-indir = fullfile(scratchdir, 'restart008/ocean');
-outdir = fullfile(scratchdir, 'restart009/ocean'); 
+indir = fullfile(scratchdir, 'restart009/ocean');
+outdir = fullfile(scratchdir, 'restart010/ocean'); 
 aa_outdir = fullfile(scratchdir, 'aa_output');
 
 bgc_infile = fullfile(indir, 'ocean_wombatlite.res.nc');
@@ -72,8 +72,8 @@ else % run model
 
     fprintf('submit model run for iter = %d\n', iter)
     cd (scratchdir);
-    if exist('restart009')
-        !rm -r restart009 output009
+    if exist('restart010')
+        !rm -r restart010 output010
     end
     cd (payudir);
     !payu run -n 1

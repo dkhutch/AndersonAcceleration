@@ -12,11 +12,13 @@
 module load matlab
 module load matlab_licence
 
-# BENOIT: Check archive directory.
-# IF model has not completed 10 years, then do nothing.
-# IF model has completed 10 years, submit matlab job.
-
 scratchdir=/scratch/y99/dkh157/access-om2/archive/caco3dyn2_aa
+outnum=restart010
+
+# Need to do collation step of the tiled restarts
+cd ${scratchdir}/${outnum}/ocean
+/g/data/y99/dkh157/mom/bin/mppnccombine ocean_wombatlite.res.nc ocean_wombatlite.res.nc.0* 
+
 cd ${scratchdir}/anderson
 
 matlab -nosplash -nojvm -singleCompThread < wombat_run.m >> $PBS_JOBID.log
