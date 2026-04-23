@@ -1,5 +1,5 @@
 # AndersonAcceleration
-## by Samar Khatiwala
+## by Samar Khatiwala with modifications by David Hutchinson
 Anderson Acceleration for solving fixed point problems and spin-up of seasonally forced ocean biogeochemical models
 
 Note: I'm not currently updating this repository while I restructure the code. Email me for the latest version as well as a python implementation.
@@ -20,12 +20,12 @@ License:
 
 See LICENSE.txt for licensing information.
 
-## Modifications by David Hutchinson 2024-Dec-11
+## Modifications by David Hutchinson 2026-Apr-23
 
-### In the matlab folder
+### In the top folder
 Added the following files:
-1. age_run.m : for running the algorithm.
-2. g_age.m : the wrapper function that reads model output and sets a new run going
+1. bling_run.m : for running the algorithm.
+2. g_bling.m : the wrapper function that reads model output and sets a new run going
 
 Modified the original function:
 1. AndersonAcceleration.m : Small changes made to Khatiwala's function to be compatible with my setup.
@@ -36,4 +36,4 @@ Modified the original function:
 
 ### NOTE:
 
-In this example, I initiate the run from restart499. I then extract age output from restart500 and feed into the algorithm. Once complete, I save the new age tracer, then delete the folders output500 and restart500. (There's no need to keep the rest as it's a repeating cycle of the same simulation, except for the age tracer.)
+In this example, I initiate the run from restart009. I then extract BGC output from restart010 and feed into the algorithm. Once complete, I save the new tracers, then delete the folders output010 and restart010. Watch out for updates to directory names and restart numbers!!
