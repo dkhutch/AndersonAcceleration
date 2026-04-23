@@ -1,28 +1,30 @@
 queue: normal
 project: y99
-walltime: 0:40:00
+walltime: 7:30:00
 ncpus: 96
 mem: 60GB
-jobname: age_g2
+jobname: a15_c3_bl_aa
 
 model: mom
 input: 
    - /g/data/y99/dkh157/mom/input/a15_c3
-exe: /g/data/y99/dkh157/mom/bin/fms_CM2M.x
+   - /g/data/y99/dkh157/mom/input/a15_c3_bling/Fe_15Ma.nc
+   - /g/data/y99/dkh157/mom/input/a15_c3_bling/chl.nc
+exe: /g/data/y99/dkh157/mom/bin/fms_CM2M_PIK.x
 
 qsub_flags: '-j oe'
 
 storage:
       gdata:
             - y99
-            - hh5
+            - xp65
+            - vk83
       scratch:
             - y99
 
 collate:
-   queue: express
-   walltime: 00:20:00
-   mem: 2GB
+   walltime: 01:00:00
+   mem: 4GB
    exe: /g/data/y99/dkh157/mom/bin/mppnccombine
 
 postscript: do_anderson.sh
