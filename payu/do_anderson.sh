@@ -23,7 +23,7 @@ cd ${scratchdir}/AndersonAcceleration
 matlab -nosplash -nojvm -singleCompThread < bling_run.m >> $PBS_JOBID.log
 
 cd ${scratchdir}/aa_output
-nccompress *nc
+nccompress -o *nc
 
 # cd ${scratchdir}/age_output
 # for x in `ls ocean_age.res_*.nc` ; do
