@@ -1,5 +1,5 @@
 restartfile = 'aa_restart.mat';
-initfile = '/scratch/y99/dkh157/mom/archive/a15_c3_bl_aa/restart009/ocean_bling.res.nc';
+initfile = '/scratch/y99/dkh157/mom/archive/a15_c1_bl_aa/restart009/ocean_bling.res.nc';
 
 bgc_tracers = {...
     'do14c', ...     
@@ -28,7 +28,6 @@ else
     aa.x = [];
     idx_start = [];
     idx_end = [];
-    tracers = {};
     for i = 1:n_bgc
         fprintf('loading %s\n', bgc_tracers{i})
         invar = ncread(initfile, bgc_tracers{i});
@@ -37,11 +36,9 @@ else
         % Append start and end indices for reading later
         idx_start = [idx_start; 1 + (i-1) * n_vec3d];
         idx_end = [idx_end; i * n_vec3d];
-        % Save tracer names
-        tracers = [tracers; bgc_tracers{i}];
     end
     
-    save('indices.mat', 'idx_start', 'idx_end', 'tracers');
+    save('indices.mat', 'idx_start', 'idx_end', 'bgc_tracers');
 
 end
 
