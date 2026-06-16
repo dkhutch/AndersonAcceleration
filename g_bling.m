@@ -1,10 +1,10 @@
 function [gx, gv, vnorms, externalconv] = g_bling(x, fetchOutput, iter)
 
-payudir = '/home/157/dkh157/mom/a15/a15_c1_bl_aa';
-scratchdir = '/scratch/y99/dkh157/mom/archive/a15_c1_bl_aa';
+payudir = '/g/data/y99/dkh157/mom/runs/a15/a15_c3_pik_a';
+scratchdir = '/scratch/y99/dkh157/mom/archive/a15_c3_pik_a';
 
-restart_out = 'restart010';
-restart_in = 'restart009';
+restart_out = 'restart100';
+restart_in = 'restart099';
 bgc_outfile = fullfile(scratchdir, restart_out, 'ocean_bling.res.nc');
 bgc_infile = fullfile(scratchdir, restart_in, 'ocean_bling.res.nc');
 flux_outfile = fullfile(scratchdir, restart_out, 'ocean_bling_airsea_flux.res.nc'); 
@@ -30,7 +30,6 @@ if fetchOutput
         gx = [gx; invec];
     end
 else
-    fprintf('submit model run for iter = %d\n', iter)
     backup = fullfile(bgc_outdir, sprintf('ocean_bling.res_%04d.nc', iter));
     if iter == 0
         copyfile(bgc_infile, backup);
@@ -61,7 +60,7 @@ else
     fprintf('submit model run for iter = %d\n', iter)
     cd (scratchdir);
     if exist(restart_out)
-        !rm -r restart010 output010
+        !rm -r restart100 output100
     end
     cd (payudir);
     !payu run -n 1
