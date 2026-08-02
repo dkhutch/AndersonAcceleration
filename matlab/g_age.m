@@ -20,6 +20,21 @@ else
         ncwrite(Age_put_file, 'age_global', Age_out3d);
     end
     copyfile(Age_put_file, backup);
+
+    if exist(fetch_dir)
+        delete(fullfile(fetch_dir, '*'));
+        rmdir(fetch_dir);
+    end
+
+    if exist(new_out_dir)
+        delete(fullfile(new_out_dir, 'manifests/*'));
+        rmdir(fullfile(new_out_dir, 'manifests'));
+        delete(fullfile(new_out_dir, '*'));
+        rmdir(new_out_dir);
+    end
+
+    cd(payu_dir);
+    !payu run 
 end
 
 vnorms = [];
