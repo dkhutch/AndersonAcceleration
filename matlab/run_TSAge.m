@@ -11,8 +11,10 @@ Temp_rest_file = 'temp_restart.mat';
 Salt_rest_file = 'salt_restart.mat';
 Age_rest_file = 'age_restart.mat';
 wet_file = 'wet3d.mat';
+vol_wt_file = 'vol_weight.mat';
 
 load(wet_file);
+load(vol_wt_file);
 
 put_dir = fullfile(scratch_dir, sprintf('restart%03d', payu_counter));
 fetch_dir = fullfile(scratch_dir, sprintf('restart%03d', payu_counter + 1));
@@ -28,7 +30,7 @@ Age_put_file = fullfile(put_dir, 'ocean_age.res.nc');
 
 save('info.mat', 'put_dir', 'fetch_dir', 'Temp_fetch_file', 'Salt_fetch_file', 'Age_fetch_file', ...
      'Temp_put_file', 'Salt_put_file', 'Age_put_file', 'aa_out_dir', 'payu_dir', 'scratch_dir', ...
-     'new_out_dir');
+     'new_out_dir', 'vol_wt_file');
 
 if isfile(Temp_rest_file)
     load(Temp_rest_file, 'aa');
@@ -36,6 +38,7 @@ else
     fprintf('start Temp from %s\n', Temp_put_file)
     Temp_3d = ncread(Temp_put_file, 'passive_temp');
     Temp_vec = Temp_3d(wet3d);
+    Temp_vec = Temp_vec .* vol_vec;
     aa.x = Temp_vec;
 end
 
@@ -48,6 +51,7 @@ else
     fprintf('start Salt from %s\n', Salt_put_file)
     Salt_3d = ncread(Salt_put_file, 'passive_salt');
     Salt_vec = Salt_3d(wet3d);
+    Salt_vec = Salt_vec .* vol_vec;
     aa.x = Salt_vec;
 end
 
@@ -60,6 +64,7 @@ else
     fprintf('start Age from %s\n', Age_put_file)
     Age_3d = ncread(Age_put_file, 'age_global');
     Age_vec = Age_3d(wet3d);
+    Age_vec = Age_vec .* vol_vec;
     aa.x = Age_vec;
 end
 
